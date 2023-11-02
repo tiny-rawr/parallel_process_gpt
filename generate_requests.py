@@ -27,8 +27,3 @@ def generate_chat_completion_requests(filename, data, prompt, model_name="gpt-3.
             # Write the messages to the JSONL file
             json_string = json.dumps({"model": model_name, "messages": messages})
             f.write(json_string + "\n")
-
-
-# Example usage:
-filename = "examples/data/example_requests_to_chat_completion.jsonl"
-generate_chat_completion_requests(filename, data, prompt)

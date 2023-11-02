@@ -2,6 +2,7 @@ import asyncio
 import os
 from api_request_parallel_processor import process_api_requests_from_file
 from generate_requests import generate_chat_completion_requests, prompt
+from save_generated_data_to_csv import save_generated_data_to_csv
 from data import data
 
 if __name__ == "__main__":
@@ -13,7 +14,6 @@ if __name__ == "__main__":
     max_attempts = 5
     logging_level = 20
     data = data[:10]
-
 
     generate_chat_completion_requests(requests_filepath, data, prompt, model_name="gpt-3.5-turbo-16k")
 
@@ -31,3 +31,5 @@ if __name__ == "__main__":
             logging_level=int(logging_level),
         )
     )
+
+    save_generated_data_to_csv(requests_output_filepath)
