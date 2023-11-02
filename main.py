@@ -21,11 +21,6 @@ if __name__ == "__main__":
         """
     requests_filepath = "example_requests_to_chat_completion.jsonl"
     requests_output_filepath = "example_requests_to_chat_completion_results.jsonl"
-    openai_endpoint = "https://api.openai.com/v1/chat/completions"
-    max_requests_per_minute = 90000
-    max_tokens_per_minute = 170000
-    max_attempts = 5
-    logging_level = 20
     data = data[:10]
 
     generate_chat_completion_requests(requests_filepath, data, prompt, model_name="gpt-3.5-turbo-16k")
@@ -35,13 +30,13 @@ if __name__ == "__main__":
         process_api_requests_from_file(
             requests_filepath=requests_filepath,
             save_filepath=requests_output_filepath,
-            request_url=openai_endpoint,
+            request_url="https://api.openai.com/v1/chat/completions",
             api_key=os.getenv("OPENAI_API_KEY"),
-            max_requests_per_minute=float(max_requests_per_minute),
-            max_tokens_per_minute=float(max_tokens_per_minute),
+            max_requests_per_minute=float(90000),
+            max_tokens_per_minute=float(170000),
             token_encoding_name="cl100k_base",
-            max_attempts=int(max_attempts),
-            logging_level=int(logging_level),
+            max_attempts=int(5),
+            logging_level=int(20),
         )
     )
 
