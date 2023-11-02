@@ -1,2 +1,4 @@
 .DS_Store
 __pycache__/
+example_requests_to_chat_completion.jsonl
+example_requests_to_chat_completion_results.jsonl
