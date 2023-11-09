@@ -19,15 +19,6 @@ if __name__ == "__main__":
         - Where the field answer is empty, do not include and do not include missing fields.
         - Do not include information that is not completed.
         """
-    prompt = """
-        Write me a comprehensive and professional medical clinic profile / bio in 3rd person that is factual and in British English without headings:
-        - Minimum 200 words.
-        - Use UK english spelling only, not American spelling.
-        - Use simple to the point language.
-        - The fields below have information you can use to create the content.
-        - Where the field answer is empty, do not include and do not include missing fields.
-        - Do not include information that is not completed.
-        """
 
     if not os.path.exists('data.py'):
         data = convert_csv_to_array("input.csv", "data.py")
