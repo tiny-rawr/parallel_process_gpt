@@ -2,6 +2,10 @@
 
 This program can process 1000 requests to ChatGPT in 2m. It uses the `gpt-3.5-turbo` model by default, which you can update in the file `generate_requests.py`.
 
+
+https://github.com/tiny-rawr/ZH_008_parallel_chatgpt_processing/assets/142869411/344decf5-5a28-42a9-81da-dca4835b5dad
+
+
 I adapted the [parallel processing cookbook example written by OpenAI](https://github.com/openai/openai-cookbook/blob/main/examples/api_request_parallel_processor.py), which was written for the embeddings model. I adapted it to work for the Chat Completion models, which has a different request structure.
 
 ## Get the program up and running
