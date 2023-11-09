@@ -1,6 +1,6 @@
 import json
 
-def generate_chat_completion_requests(filename, data, prompt, model_name="gpt-3.5-turbo-16k"):
+def generate_chat_completion_requests(filename, data, prompt, model_name="gpt-3.5-turbo"):
     with open(filename, "w") as f:
         for x in data:
             # Create a list of messages for each request
