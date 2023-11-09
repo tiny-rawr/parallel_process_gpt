@@ -3,7 +3,7 @@ import os
 from api_request_parallel_processor import process_api_requests_from_file
 from generate_requests import generate_chat_completion_requests
 from save_generated_data_to_csv import save_generated_data_to_csv
-from data import data
+from csv_to_array import convert_csv_to_array
 
 if __name__ == "__main__":
     prompt = """
@@ -19,9 +19,15 @@ if __name__ == "__main__":
         - Where the field answer is empty, do not include and do not include missing fields.
         - Do not include information that is not completed.
         """
+
+    if not os.path.exists('data.py'):
+        data = convert_csv_to_array("input.csv", "data.py")
+        from data import data
+    else:
+        from data import data
+
     requests_filepath = "example_requests_to_chat_completion.jsonl"
     requests_output_filepath = "example_requests_to_chat_completion_results.jsonl"
-    data = data[:10]
 
     generate_chat_completion_requests(requests_filepath, data, prompt, model_name="gpt-3.5-turbo-16k")
 
