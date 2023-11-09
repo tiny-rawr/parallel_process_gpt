@@ -2,5 +2,6 @@
 __pycache__/
 example_requests_to_chat_completion.jsonl
 example_requests_to_chat_completion_results.jsonl
+input.csv
 output.csv
 data.py
