@@ -12,4 +12,4 @@ def convert_csv_to_array(input_csv_path, output_python_path):
         data_file.write(f'data = {data}')
 
 if __name__ == "__main__":
-  convert_csv_to_array("input.csv", "data.py")
+  convert_csv_to_array("output.csv", "summarised_book_chunks.py")

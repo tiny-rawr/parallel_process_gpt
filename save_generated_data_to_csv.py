@@ -20,8 +20,11 @@ def save_generated_data_to_csv(filename):
 
         # Iterate through the specialists and write data to the CSV
         for response in responses:
-            original_data = response[0]['messages'][1]['content']
-            generated_bio = response[1]['choices'][0]['message']['content']
+            original_data = response[0]["messages"][1]["content"]
+            try:
+              generated_bio = response[1]["choices"][0]["message"]["tool_calls"][0]["function"]["arguments"]
+            except:
+              generated_bio = response[1]["choices"][0]["message"]["content"]
 
             # Write data to the CSV file
             csv_writer.writerow([original_data, generated_bio])
