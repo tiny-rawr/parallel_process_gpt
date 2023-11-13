@@ -16,27 +16,15 @@ def generate_chat_completion_requests(filename, data, prompt, model_name="gpt-3.
 
 
 def generate_gpt_request(prompt, data, functions=[]):
+    model = "gpt-3.5-turbo"
+    messages = [
+        {"role": "system", "content": prompt},
+        {"role": "user", "content": str(data)}
+    ]
     if functions:
-        return generate_complex_gpt_request(prompt, data, functions)
+        return json.dumps({"model": model, "messages": messages, "tools": functions})
     else:
-        return generate_simple_gpt_request(prompt, data)
-
-
-def generate_simple_gpt_request(prompt, data, model="gpt-3.5-turbo"):
-    messages = [
-        {"role": "system", "content": prompt},
-        {"role": "user", "content": str(data)}
-    ]
-    return json.dumps({"model": model, "messages": messages})
-
-
-def generate_complex_gpt_request(prompt, data, functions, model="gpt-3.5-turbo"):
-    messages = [
-        {"role": "system", "content": prompt},
-        {"role": "user", "content": str(data)}
-    ]
-    return json.dumps({"model": model, "messages": messages, "tools": functions})
-
+        return json.dumps({"model": model, "messages": messages})
 
 if __name__ == "__main__":
     # Generate simple request for summarising text
